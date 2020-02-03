@@ -1,0 +1,31 @@
+{
+  "name": "modulate-fm",
+  "version": "1.0.0",
+  "description": "A wrapper around voice-activity-detection that emits voice audio as it captures it from the mic.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jimkang/modulate-fm.git"
+  },
+  "keywords": [
+    "audio",
+    "browser",
+    "utility"
+  ],
+  "author": "Jim Kang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimkang/modulate-fm/issues"
+  },
+  "homepage": "https://github.com/jimkang/modulate-fm",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^16.2.3",
+    "handle-error-web": "^1.0.1",
+    "uglify-es": "^3.1.9",
+    "audio-context-singleton": "^1.0.2",
+    "oknok": "^3.0.0"
+  },
+  "dependencies": {}
+}
