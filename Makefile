@@ -23,10 +23,9 @@ build:
 	$(BROWSERIFY) $(TRANSFORM_SWITCH) demo-app.js | $(UGLIFY) -c -m -o demo.js
 
 sync:
-	scp $(HOMEDIR)/index.html $(USER)@$(SERVER):/$(APPDIR)/
-	scp $(HOMEDIR)/demo.js $(USER)@$(SERVER):/$(APPDIR)/
-	scp $(HOMEDIR)/app.css $(USER)@$(SERVER):/$(APPDIR)/
+	scp $(HOMEDIR)/index.html $(USER)@$(SERVER):/$(APPDIR)
+	scp $(HOMEDIR)/demo.js $(USER)@$(SERVER):/$(APPDIR)
+	scp $(HOMEDIR)/app.css $(USER)@$(SERVER):/$(APPDIR)
 
 set-up-dir:
 	ssh $(USER)@$(SERVER) "mkdir -p $(APPDIR)"
-
