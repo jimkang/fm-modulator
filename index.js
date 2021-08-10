@@ -1,7 +1,13 @@
-function modulateFM({ index, modFreq, carrierOsc, ctx }) {
+function modulateFM({ index, signalBuffer, modFreq, carrierOsc, ctx }) {
   const deviation = index * modFreq;
-  var modulator = ctx.createOscillator();
-  modulator.frequency.value = modFreq;
+  var modulator;
+  if (signalBuffer) {
+    modulator = ctx.createBufferSource();
+    modulator = signalBuffer;
+  } else {
+    modulator = ctx.createOscillator();
+    modulator.frequency.value = modFreq;
+  }
 
   var modulatorAmp = ctx.createGain();
   modulatorAmp.gain.value = deviation;

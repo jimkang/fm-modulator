@@ -2,6 +2,7 @@ var modulate = require('./index');
 var handleError = require('handle-error-web');
 var oknok = require('oknok');
 var ContextKeeper = require('audio-context-singleton');
+var wireRecorder = require('./recorder');
 
 var { getCurrentContext } = ContextKeeper();
 
@@ -9,6 +10,8 @@ document.getElementById('start-button').addEventListener('click', start);
 var indexField = document.getElementById('index-field');
 var modFreqField = document.getElementById('mod-freq-field');
 var carrierField = document.getElementById('carrier-field');
+
+wireRecorder({ onError: handleError, onRecorded });
 
 function start() {
   console.log('started');
@@ -24,9 +27,11 @@ function start() {
       ctx,
       index: indexField.value,
       modFreq: modFreqField.value,
-      carrierOsc
+      carrierOsc,
     });
 
     playModulation({ delaySeconds: 0, durationSeconds: 1 });
   }
 }
+
+function onRecorded(audioBuffer) {}
