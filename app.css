@@ -1,17 +1,11 @@
 body {
-  font-size: 24pt;
-  font-family: futura, sans-serif;
+  font-size: 12pt;
+  font-family: Helvetica, sans-serif;
   background-color: #fff;
-  color: #666;
+  color: #444;
   margin-bottom: 2em;
   margin-left: 2em;
   margin-right: 2em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.centered-col {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,30 +28,62 @@ body {
   padding: 1em;
 }
 
-#listening-message {
-  background-color: #ff4400;
-  margin: 1em;
-  padding: 1em;
-}
-
 button {
-  text-transform: uppercase;
-  color: #444;
-  font-size: 0.8em;
+  font-size: 1.5em;
   cursor: pointer;
-  background-color: white;
   padding: 0.5em;
   border-radius: 0.5em;
-  border-width: 1px;
+  border-width: 2px;
   border-color: #aaa;
   border-style: solid;
-  font-family: futura;
   min-width: 44px;
-  box-shadow: #444 0 0 4px;
+  margin-top: 1rem;
 }
 
-@media all and (max-height: 568px) {
-  body {
-    font-size: 18px;
-  }
+audio {
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+}
+
+.panel {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.group {
+  border-color: hsl(152.1, 46.7%, 47.8%);
+  border-width: 4px;
+  border-style: double;
+  border-radius: 0.5rem;
+  width: 8em;
+  flex-grow: 1;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.or {
+flex-grow: 0; width: 2em; border: none; display: flex; align-items: center; justify-content: center; margin: 0;
+}
+
+.group > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+.group input {
+  max-width: 7em;
+}
+
+label {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #222;
+  font-weight: bold;
 }
