@@ -10,15 +10,24 @@
 
     <p>A demo of <a href="https://github.com/jimkang/fm-modulator">fm-modulator</a>. Enter the <a href="https://www.electronics-notes.com/articles/radio/modulation/fm-frequency-modulation-index-deviation-ratio.php">modulation index</a> you want and the the carrier frequency you want, then hit play.</p>
 
-    <div><label>Modulation index:</label><input id="index-field" type="number" value="1" /></div>
-    <div><label>Modulation frequency:</label><input id="mod-freq-field" type="number" value="300" /></div>
+    <div><label>Modulation index:</label><input id="index-field" type="number" value="5" /></div>
+    <div><label>Modulation frequency:</label><input id="mod-freq-field" type="number" value="4000" /></div>
     <div>
       <label for="record-button">Or record your own information signal:</label>
       <button id="record-button">Start recording</button>
       <audio id="signal-player" controls class="hidden"></audio>
     </div>
-    <div><label>Carrier frequency:</label><input id="carrier-field" type="number" value="100" /></div>
-    <button id="start-button">Play</button>
+    <div><label>Carrier frequency:</label><input id="carrier-field" type="number" value="440" /></div>
+    <label>Carrier wave type:</label>
+    <select id="wave-type-select">
+      <option value="sawtooth" selected>sawtooth</option>
+      <option value="sine">sine</option>
+      <option value="square">square</option>
+      <option value="triangle">triangle</option>
+    </select>
+
+    <div><label>Result signal duration in seconds:</label><input id="duration-field" type="number" value="5" /></div>
+    <button id="start-button">Play modulated signal</button>
 
     <script src="demo.js"></script>
   </body>

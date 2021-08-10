@@ -10,6 +10,10 @@ document.getElementById('start-button').addEventListener('click', start);
 var indexField = document.getElementById('index-field');
 var modFreqField = document.getElementById('mod-freq-field');
 var carrierField = document.getElementById('carrier-field');
+var carrierTypeSelect = document.getElementById('wave-type-select');
+var durationField = document.getElementById('duration-field');
+
+var signalBuffer;
 
 wireRecorder({ onError: handleError, onRecorded });
 
@@ -20,18 +24,21 @@ function start() {
 
   function useContext(ctx) {
     var carrierOsc = ctx.createOscillator();
-    carrierOsc.type = 'sawtooth';
+    carrierOsc.type = carrierTypeSelect.value;
     carrierOsc.frequency.value = carrierField.value;
 
     var playModulation = modulate({
       ctx,
-      index: indexField.value,
-      modFreq: modFreqField.value,
+      index: +indexField.value,
+      modFreq: +modFreqField.value,
       carrierOsc,
+      signalBuffer,
     });
 
-    playModulation({ delaySeconds: 0, durationSeconds: 1 });
+    playModulation({ delaySeconds: 0, durationSeconds: +durationField.value });
   }
 }
 
-function onRecorded(audioBuffer) {}
+function onRecorded(audioBuffer) {
+  signalBuffer = audioBuffer;
+}

@@ -2,8 +2,10 @@ function modulateFM({ index, signalBuffer, modFreq, carrierOsc, ctx }) {
   const deviation = index * modFreq;
   var modulator;
   if (signalBuffer) {
-    modulator = ctx.createBufferSource();
-    modulator = signalBuffer;
+    modulator = new AudioBufferSourceNode(ctx, {
+      buffer: signalBuffer,
+      loop: true,
+    });
   } else {
     modulator = ctx.createOscillator();
     modulator.frequency.value = modFreq;
